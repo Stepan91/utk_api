@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Последние комментарии </title>
+  </head>
+  <body>
+    <h1>Последние комментарии:</h1>
+    <form action="{% url 'new' %}" method="post">
+      {% csrf_token %}
+      <input type="submit" class="btn" value="Добавить комментарий" name="Добавить комментарий">
+    </form>
+    {% for comment in comments %}
+      <h3>
+        phone: {{ comment.phone }},
+        email: {{ comment.email }},
+        pub_date: {{ comment.pub_date }}
+      </h3>
+      <p>{{ comment.comment|linebreaksbr }}</p>
+      {% load thumbnail %}
+      {% thumbnail comment.image "480x250" crop="center" upscale=True as im %}
+          <img src="{{ im.url }}" class="image-detail">
+      {% endthumbnail %}
+      <hr>
+    {% endfor %}
+  </body>
+</html>
