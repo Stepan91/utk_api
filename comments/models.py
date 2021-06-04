@@ -8,6 +8,10 @@ class Comment(models.Model):
         unique=True,
         verbose_name='Адрес электронной почты'
     )
-    comment = models.CharField(max_length=200, verbose_name='Комментарий')
+    comment = models.CharField(
+        blank=True,
+        max_length=200,
+        verbose_name='Комментарий'
+    )
     image = models.ImageField(blank=True, verbose_name='Изображение')
     pub_date = models.DateTimeField('Дата публикации', auto_now_add=True)
