@@ -6,3 +6,5 @@ https://prynstepan.pythonanywhere.com
 https://prynstepan.pythonanywhere.com/api/
 2. Получение path направленной картинки:
 https://prynstepan.pythonanywhere.com/api/image/
+
+Стек: Python, Django, Django Rest Framework.
